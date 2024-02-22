@@ -79,9 +79,30 @@ class BoxTest(Node):
 
 # Function to get the current robot pose (x, y, theta) using odometry data or tf2_ros
     def get_current_pose(self):
-        # Implement logic to retrieve the robot's current pose using your chosen library
-        pass
+        """
+        Retrieves the robot's current pose (x, y, theta) using tf2_ros.
 
+        Returns:
+            tuple: (x, y, theta) representing the current pose, or None on error.
+        """
+
+        try:
+            # Get current transform between base_link and map frames
+            trans = tf_buffer.lookup_transform('map', 'base_link', rospy.Time())
+
+            # Extract position coordinates (x, y) from the translation vector
+            x = trans.transform.translation.x
+            y = trans.transform.translation.y
+
+            # Calculate heading angle from quaternion (requires quaternion to Euler conversion)
+            quat = trans.transform.rotation
+            euler_angles = tft.euler_from_quaternion(quat)
+            theta = euler_angles[2]  # Extract yaw angle (theta)
+
+            return x, y, theta
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException) as e:
+            rospy.logwarn(f"Error getting transform: {e}")
+            return None, None, None  # Indicate error
 
     def move_forward(self, distance, speed, lin_tol):
         """
@@ -102,7 +123,6 @@ class BoxTest(Node):
         self.cmd_vel_pub.publish(twist)
 
         # Track traveled distance and stop when target is reached
-
 
     def turn(self, angle, speed, ang_tol):
         """
