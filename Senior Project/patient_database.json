@@ -1,0 +1,97 @@
+{
+  "patients": {
+    "10001AB": {
+      "name": "Doe John",
+      "room": "Room A",
+      "coordinates": [1, 2],
+      "medications": {
+        "M1001": {
+          "name": "MedA",
+          "dosage": "10mg",
+          "datetime": "2024-04-01 08:00:00",
+          "prescriber_id": "P001"
+        }
+      }
+    },
+    "10002CD": {
+      "name": "Smith Jane",
+      "room": "Room B",
+      "coordinates": [3, 4],
+      "medications": {}
+    },
+    "10003EF": {
+      "name": "Brown Alice",
+      "room": "Room C",
+      "coordinates": [4, 5],
+      "medications": {}
+    },
+    "10004GH": {
+      "name": "Wilson Mike",
+      "room": "Room D",
+      "coordinates": [5, 6],
+      "medications": {}
+    },
+    "10005IJ": {
+      "name": "Taylor Sarah",
+      "room": "Room B",
+      "coordinates": [6, 7],
+      "medications": {}
+    }
+  },
+  "medications": {
+    "M1001": {
+      "name": "MedA",
+      "dosage": "10mg"
+    },
+    "M1002": {
+      "name": "MedB",
+      "dosage": "20mg"
+    },
+    "M1003": {
+      "name": "MedC",
+      "dosage": "15mg"
+    },
+    "M1004": {
+      "name": "MedD",
+      "dosage": "25mg"
+    },
+    "M1005": {
+      "name": "MedE",
+      "dosage": "30mg"
+    },
+    "M1006": {
+      "name": "MedF",
+      "dosage": "40mg"
+    },
+    "M1007": {
+      "name": "MedG",
+      "dosage": "50mg"
+    },
+    "M1008": {
+      "name": "MedH",
+      "dosage": "10mg"
+    },
+    "M1009": {
+      "name": "MedI",
+      "dosage": "20mg"
+    },
+    "M1010": {
+      "name": "MedJ",
+      "dosage": "30mg"
+    }
+  },
+  "prescribers": {
+    "P001": {
+      "name": "Smith John",
+      "privileges": "Y"
+    },
+    "P002": {
+      "name": "Doe Jane",
+      "privileges": "N"
+    },
+    "P003": {
+      "name": "Brown Michael",
+      "privileges": "Y"
+    }
+  }
+}
